@@ -1,0 +1,26 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+}
+
+/* .table-container {
+ position: absolute;  
+ top: 0;
+ width: 100%;
+ margin-top: 4rem;
+   
+} */
+
+.wrapper {
+    position: absolute;
+    top: 0;
+  }
+  
+ 
+  
+
+/* #toggle-btn{
+    position: absolute;
+    top: 0;
+} */

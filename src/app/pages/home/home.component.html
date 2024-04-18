@@ -1,0 +1,56 @@
+<div style="margin-top: 2rem;"> <!-- Adjust margin-top as needed -->
+   <div *ngIf="!showForm">
+      <input type="button" class="btn btn-success" value="ADD" (click)="toggleForm()">
+   </div>
+ 
+   <div *ngIf="showForm">
+      <!-- Form to add a new student -->
+      <form (submit)="addStudent()">
+        <div class="mb-3">
+          <label for="first_name" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="first_name" name="first_name" [(ngModel)]="newStudent.first_name">
+        </div> 
+    
+        <div class="mb-3">
+          <label for="last_name" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="last_name" name="last_name" [(ngModel)]="newStudent.last_name">
+        </div>
+    
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="newStudent.phone">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Add Student</button>
+      </form>
+   </div>
+
+   
+
+   <!-- Hide the table when the form is visible -->
+   <table class="table table-striped" *ngIf="!showForm">
+     <thead class="table-dark">
+       <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Phone</th>
+         <th>Actions</th> 
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let student of students">
+         <td>{{ student['first_name'] }}</td>
+         <td>{{ student['last_name'] }}</td>
+         <td>{{ student['phone'] }}</td>
+         <td>
+          <button class="btn btn-success" (click)="editStudent(student)">Edit</button>
+          <button class="btn btn-success" style="margin-left: 2rem;" (click)="deleteStudent(student.id)">Delete</button>
+         </td>
+       </tr>
+       
+
+       
+     </tbody>
+   </table>
+ </div>
+ 
